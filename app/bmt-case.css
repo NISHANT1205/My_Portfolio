@@ -1,0 +1,106 @@
+.bmt-preview {
+  position: absolute;
+  inset: 0;
+  padding: 7% 7% 0;
+  background:
+    radial-gradient(circle at 12% 20%, rgba(48, 49, 139, 0.24), transparent 30%),
+    linear-gradient(145deg, #eff2f8, #dce4ef);
+  perspective: 1200px;
+}
+
+.bmt-preview::before {
+  content: "BMT / 02";
+  position: absolute;
+  right: 3%;
+  top: 4%;
+  color: rgba(30, 37, 55, 0.45);
+  font: 500 8px var(--font-mono), monospace;
+  letter-spacing: 0.14em;
+}
+
+.bmt-browser {
+  position: relative;
+  z-index: 2;
+  width: 92%;
+  height: 89%;
+  margin-left: auto;
+  overflow: hidden;
+  border: 1px solid rgba(18, 25, 44, 0.24);
+  border-radius: 16px 16px 0 0;
+  background: #fff;
+  box-shadow: 0 30px 70px rgba(25, 37, 66, 0.25);
+  transform-origin: center bottom;
+}
+
+.bmt-browser-bar {
+  height: 34px;
+  padding: 0 12px;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  background: #171923;
+  color: #aeb3c0;
+  font: 500 7px var(--font-mono), monospace;
+}
+
+.bmt-browser-bar > div { display: flex; gap: 5px; }
+.bmt-browser-bar i { width: 6px; height: 6px; border-radius: 50%; background: #555a68; }
+.bmt-browser-bar span { justify-self: center; padding: 4px 18px; border-radius: 100px; background: #242733; }
+.bmt-browser-bar b { justify-self: end; color: #fff; }
+
+.bmt-browser-screen {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.bmt-browser-screen img {
+  object-fit: contain;
+  object-position: top;
+  background: #eef2f7;
+}
+
+.bmt-label {
+  position: absolute;
+  z-index: 4;
+  left: 4%;
+  bottom: 8%;
+  padding: 18px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 14px;
+  background: rgba(20, 24, 39, 0.9);
+  color: #fff;
+  box-shadow: 0 16px 40px rgba(20, 24, 39, 0.25);
+  backdrop-filter: blur(14px);
+}
+
+.bmt-label span {
+  display: block;
+  margin-bottom: 10px;
+  color: #9da5ff;
+  font: 600 7px var(--font-mono), monospace;
+  letter-spacing: 0.14em;
+}
+
+.bmt-label b {
+  font-size: clamp(14px, 1.6vw, 24px);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.visual-detail .bmt-preview { padding: 5% 6% 0; }
+.visual-detail .bmt-browser { width: 92%; height: 90%; }
+
+@media (max-width: 700px) {
+  .bmt-preview { padding: 9% 4% 0; }
+  .bmt-browser { width: 96%; height: 82%; }
+  .bmt-browser-bar { height: 28px; }
+  .bmt-browser-screen { top: 0; }
+  .bmt-label { left: 3%; bottom: 5%; padding: 13px 14px; }
+  .bmt-label b { font-size: 15px; }
+  .visual-detail .bmt-preview { padding: 8% 4% 0; }
+  .visual-detail .bmt-browser { width: 96%; height: 84%; }
+}

@@ -1,0 +1,84 @@
+.nisharc-preview {
+  position: absolute;
+  inset: 0;
+  padding: 7% 4% 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 88% 18%, rgba(93, 224, 255, 0.38), transparent 34%),
+    radial-gradient(circle at 18% 82%, rgba(255, 157, 118, 0.22), transparent 32%),
+    linear-gradient(145deg, #edfaff, #f8eee9);
+  perspective: 1300px;
+}
+
+.nisharc-preview::before {
+  content: "NISHARC / STUDIO";
+  position: absolute;
+  right: 3.5%;
+  top: 3.5%;
+  color: rgba(15, 54, 46, 0.48);
+  font: 600 8px var(--font-mono), monospace;
+  letter-spacing: 0.13em;
+}
+
+.nisharc-screen {
+  position: relative;
+  z-index: 2;
+  width: 92%;
+  height: 93%;
+  margin-left: auto;
+  overflow: hidden;
+  border: 1px solid rgba(11, 61, 50, 0.18);
+  border-radius: 16px 16px 0 0;
+  background: #ecfbff;
+  box-shadow: 0 34px 80px rgba(22, 79, 77, 0.2);
+  transform-origin: center bottom;
+}
+
+.nisharc-screen img {
+  object-fit: contain;
+  object-position: top left;
+  background: #ecfbff;
+}
+
+.nisharc-caption {
+  position: absolute;
+  z-index: 4;
+  left: 3%;
+  bottom: 7%;
+  padding: 18px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 15px;
+  background: rgba(8, 43, 35, 0.93);
+  color: #fff;
+  box-shadow: 0 20px 50px rgba(12, 52, 46, 0.25);
+  backdrop-filter: blur(14px);
+}
+
+.nisharc-caption span,
+.nisharc-caption small {
+  display: block;
+  font: 600 7px/1.5 var(--font-mono), monospace;
+  letter-spacing: 0.11em;
+}
+
+.nisharc-caption span { margin-bottom: 10px; color: #61e1bb; }
+.nisharc-caption small { margin-top: 13px; color: #a8c8bf; }
+
+.nisharc-caption b {
+  font-size: clamp(16px, 1.9vw, 28px);
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+}
+
+.visual-detail .nisharc-preview { padding: 5% 4% 0; }
+.visual-detail .nisharc-screen { width: 94%; }
+
+@media (max-width: 700px) {
+  .nisharc-preview { padding: 9% 3% 0; }
+  .nisharc-screen { width: 97%; height: 84%; }
+  .nisharc-caption { left: 3%; bottom: 5%; padding: 13px 14px; }
+  .nisharc-caption b { font-size: 15px; }
+  .nisharc-caption small { display: none; }
+  .visual-detail .nisharc-preview { padding: 8% 3% 0; }
+  .visual-detail .nisharc-screen { width: 97%; height: 86%; }
+}

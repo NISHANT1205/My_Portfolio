@@ -1,0 +1,46 @@
+/* The parrot accent stays; the surrounding palette is intentionally quiet. */
+:root,
+html[data-theme="light"] {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f3f5ee;
+  --text: #151711;
+  --muted: #656a60;
+  --line: rgba(21, 23, 17, 0.13);
+  --lime: #b9f23d;
+  --warm: #ff6b45;
+  --dark: #eeefe9;
+  --shadow: 0 24px 80px rgba(41, 47, 31, 0.1);
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  --bg: #0b0c0e;
+  --surface: #111317;
+  --surface-2: #17191e;
+  --text: #f1f1ec;
+  --muted: #999d9a;
+  --line: rgba(255, 255, 255, 0.11);
+  --lime: #c8ff52;
+  --warm: #ff6b45;
+  --dark: #090a0c;
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.3);
+  color-scheme: dark;
+}
+
+html[data-theme="light"] .hero-noise {
+  background: radial-gradient(circle, rgba(185, 242, 61, 0.2), transparent 67%);
+}
+
+html[data-theme="light"] .hero-workspace {
+  background: linear-gradient(145deg, rgba(185, 242, 61, 0.08), rgba(255, 255, 255, 0.7));
+}
+
+html[data-theme="light"] .float-card {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12px 30px rgba(41, 47, 31, 0.08);
+}
+
+html[data-theme="light"] .project-visual {
+  background-color: color-mix(in srgb, var(--accent) 11%, #f3f5ee);
+}

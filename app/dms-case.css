@@ -1,0 +1,83 @@
+.dms-preview {
+  position: absolute;
+  inset: 0;
+  padding: 7% 4% 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(83, 125, 255, 0.2), transparent 32%),
+    linear-gradient(145deg, #111319, #20242d);
+  perspective: 1400px;
+}
+
+.dms-preview::before {
+  content: "DMS / LIVE OPERATIONS";
+  position: absolute;
+  top: 4%;
+  right: 4%;
+  color: rgba(255, 255, 255, 0.42);
+  font: 500 8px var(--font-mono), monospace;
+  letter-spacing: 0.13em;
+}
+
+.dms-screen {
+  position: relative;
+  z-index: 2;
+  width: 91%;
+  height: 94%;
+  margin-left: auto;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 14px 14px 0 0;
+  background: #f7f7f7;
+  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.46);
+  transform-origin: center bottom;
+}
+
+.dms-screen img {
+  object-fit: contain;
+  object-position: top left;
+  background: #f7f7f7;
+}
+
+.dms-caption {
+  position: absolute;
+  z-index: 4;
+  left: 3%;
+  bottom: 8%;
+  padding: 18px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  border-radius: 14px;
+  background: rgba(10, 12, 16, 0.92);
+  color: #fff;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.36);
+  backdrop-filter: blur(14px);
+}
+
+.dms-caption span,
+.dms-caption small {
+  display: block;
+  font: 500 7px/1.5 var(--font-mono), monospace;
+  letter-spacing: 0.11em;
+}
+
+.dms-caption span { margin-bottom: 10px; color: #8eabff; }
+.dms-caption small { margin-top: 13px; color: #9298a5; }
+
+.dms-caption b {
+  font-size: clamp(15px, 1.8vw, 26px);
+  line-height: 1.07;
+  letter-spacing: -0.04em;
+}
+
+.visual-detail .dms-preview { padding: 5% 4% 0; }
+.visual-detail .dms-screen { width: 94%; }
+
+@media (max-width: 700px) {
+  .dms-preview { padding: 10% 3% 0; }
+  .dms-screen { width: 97%; height: 83%; }
+  .dms-caption { left: 3%; bottom: 5%; padding: 13px 14px; }
+  .dms-caption b { font-size: 15px; }
+  .dms-caption small { display: none; }
+  .visual-detail .dms-preview { padding: 8% 3% 0; }
+  .visual-detail .dms-screen { width: 97%; height: 85%; }
+}
