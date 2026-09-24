@@ -55,6 +55,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             </section>
           </div>
 
+          {/* Temporarily hidden until the case-study narrative is finalized.
           {project.details && (
             <section className="case-workings">
               <span className="eyebrow">How it works</span>
@@ -63,6 +64,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               </div>
             </section>
           )}
+          */}
 
           {project.architecture && (
             <section className="case-architecture">

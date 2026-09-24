@@ -4,7 +4,7 @@ import { Header } from "@/components/header";
 import { CapabilityIcon } from "@/components/icons";
 import { ProjectCard } from "@/components/project-card";
 import { Reveal } from "@/components/reveal";
-import { capabilities, principles, skillGroups } from "@/data/site";
+import { capabilities, skillGroups } from "@/data/site";
 import { projects } from "@/data/projects";
 
 export default function Home() {
@@ -33,7 +33,9 @@ export default function Home() {
 
     <section className="section skills" id="skills"><div className="container"><Reveal><div className="section-head"><div><span className="eyebrow">05 / Toolkit</span><h2>Tools change.<br/><span>Thinking scales.</span></h2></div><p>A practical toolkit for designing, building and shipping across the product stack.</p></div></Reveal><div className="skill-groups">{skillGroups.map((group, i)=><Reveal key={group.title} delay={i*.08}><div className="skill-group"><span>0{i+1}</span><h3>{group.title}</h3><div>{group.skills.map(skill=><i key={skill}>{skill}</i>)}</div></div></Reveal>)}</div></div></section>
 
+    {/* Development philosophy / "How I work" section temporarily hidden.
     <section className="section philosophy"><div className="container"><Reveal><span className="eyebrow">06 / How I work</span><h2 className="philosophy-title">Good software is more than<br/>code that <em>works.</em></h2></Reveal><div className="principles">{principles.map(([n,title,text])=><Reveal key={n}><article><span>{n}</span><h3>{title}</h3><p>{text}</p></article></Reveal>)}</div></div></section>
+    */}
 
     <section className="github-section"><div className="container"><Reveal><div className="github-card"><div className="github-copy"><Github size={28}/><span className="eyebrow">Open source & experiments</span><h2>The workbench<br/>stays open.</h2><p>Browse selected repositories, experiments and projects as they evolve on GitHub.</p><a className="button button-light" href="https://github.com/NISHANT1205" target="_blank" rel="noreferrer">Visit GitHub <ArrowUpRight size={17}/></a></div><div className="code-art" aria-hidden="true"><div><span>01</span><b>const</b> builder = {"{"}</div><div><span>02</span>&nbsp;&nbsp;craft: <i>&quot;considered&quot;</i>,</div><div><span>03</span>&nbsp;&nbsp;scope: [<i>&quot;ui&quot;</i>, <i>&quot;systems&quot;</i>],</div><div><span>04</span>&nbsp;&nbsp;status: <i>&quot;shipping&quot;</i></div><div><span>05</span>{"}"};</div><div className="code-cursor"><span>06</span>_</div></div></div></Reveal></div></section>
 

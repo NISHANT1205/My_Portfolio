@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
 import "./globals.css";
 import "./theme.css";
 import "./hero.css";
@@ -24,7 +23,7 @@ export const metadata: Metadata = {
   manifest: "/manifest.webmanifest",
 };
 
-export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#ffffff", colorScheme: "light dark" };
+export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#ffffff", colorScheme: "light" };
 
 const schema = {
   "@context": "https://schema.org", "@graph": [
@@ -35,5 +34,5 @@ const schema = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const fontVariables = { "--font-sans": '"Avenir Next", Avenir, "Segoe UI", Helvetica, Arial', "--font-mono": '"SFMono-Regular", Consolas, "Liberation Mono"' } as React.CSSProperties;
-  return <html lang="en" suppressHydrationWarning><head><Script id="theme" strategy="beforeInteractive">{`try{document.documentElement.dataset.theme=localStorage.getItem('theme')||'light'}catch(e){}`}</Script><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} /></head><body style={fontVariables}>{children}</body></html>;
+  return <html lang="en"><head><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} /></head><body style={fontVariables}>{children}</body></html>;
 }

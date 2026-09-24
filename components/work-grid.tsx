@@ -5,7 +5,7 @@ import { useState } from "react";
 import { projects } from "@/data/projects";
 import { ProjectCard } from "./project-card";
 
-const filters = ["All", "Apps", "Websites", "Dashboards", "Games"] as const;
+const filters = ["All", "Apps", "Websites", "Dashboards" /* "Games" */] as const;
 
 export function WorkGrid() {
   const [filter, setFilter] = useState<(typeof filters)[number]>("All");

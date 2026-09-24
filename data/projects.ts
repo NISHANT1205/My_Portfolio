@@ -98,6 +98,7 @@ export const projects: Project[] = [
     visual: "game",
     featured: true,
   },
+  /* Temporarily hidden until the game project pages are ready.
   {
     title: "Fruit Splash",
     slug: "fruit-splash",
@@ -126,6 +127,7 @@ export const projects: Project[] = [
     visual: "game",
     featured: false,
   },
+  */
 ];
 
 export const getProject = (slug: string) => projects.find((project) => project.slug === slug);
