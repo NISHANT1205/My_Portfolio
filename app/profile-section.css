@@ -1,8 +1,22 @@
 .profile-section {
   position: relative;
-  background: var(--bg);
+  overflow: hidden;
+  background: var(--surface);
   color: var(--text);
 }
+
+.profile-section::before {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 72px 72px;
+  opacity: .12;
+  content: "";
+  pointer-events: none;
+  mask-image: linear-gradient(to right, transparent, #000 45%, transparent);
+}
+
+.profile-section .container { position: relative; }
 
 .section-anchor {
   position: absolute;
@@ -25,15 +39,25 @@
 
 .profile-grid {
   display: grid;
-  grid-template-columns: minmax(330px, 0.82fr) minmax(520px, 1.18fr);
-  gap: clamp(55px, 8vw, 120px);
+  grid-template-columns: minmax(320px, .85fr) minmax(500px, 1.15fr);
+  gap: clamp(50px, 7vw, 100px);
   padding-top: 72px;
+  align-items: stretch;
 }
 
 .profile-intro {
   display: flex;
   flex-direction: column;
-  min-height: 610px;
+  min-height: 590px;
+  padding: 12px 0;
+}
+
+.profile-number {
+  margin-bottom: 30px;
+  color: var(--lime);
+  font: 500 9px var(--font-mono), monospace;
+  letter-spacing: .12em;
+  text-transform: uppercase;
 }
 
 .profile-intro h2 {
@@ -55,25 +79,41 @@
 }
 
 .profile-intro > p {
-  max-width: 490px;
-  margin: 35px 0 50px;
+  max-width: 440px;
+  margin: 36px 0 50px;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.8;
 }
 
+.profile-signoff { display: flex; align-items: center; gap: 11px; margin-top: auto; color: var(--muted); font: 500 9px var(--font-mono), monospace; letter-spacing: .07em; text-transform: uppercase; }
+.profile-signoff i { width: 8px; height: 8px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 6px color-mix(in srgb, var(--lime) 12%, transparent); }
+
+.about-panel { overflow: hidden; border: 1px solid var(--line); border-radius: 28px; background: color-mix(in srgb, var(--bg) 72%, transparent); box-shadow: var(--shadow); }
+.about-statement { padding: 38px; border-bottom: 1px solid var(--line); }
+.about-statement > span { color: var(--lime); font: 500 8px var(--font-mono), monospace; letter-spacing: .13em; }
+.about-statement p { max-width: 620px; margin: 20px 0 0; font-size: clamp(24px, 2.6vw, 36px); line-height: 1.18; letter-spacing: -.045em; }
+.about-focus article { display: grid; grid-template-columns: 50px 1fr; gap: 18px; padding: 23px 38px; border-bottom: 1px solid var(--line); transition: background .25s ease; }
+.about-focus article:hover { background: var(--surface-2); }
+.about-focus article > span { padding-top: 4px; color: var(--muted); font: 500 8px var(--font-mono), monospace; }
+.about-focus h3 { margin: 0 0 7px; font-size: 15px; letter-spacing: -.02em; }
+.about-focus p { max-width: 500px; margin: 0; color: var(--muted); font-size: 11px; line-height: 1.65; }
+
 .profile-meta {
-  margin-top: auto;
-  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .profile-meta > div {
-  display: grid;
-  grid-template-columns: 130px 1fr;
-  gap: 18px;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--line);
+  display: flex;
+  min-height: 88px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  padding: 18px;
+  border-right: 1px solid var(--line);
 }
+.profile-meta > div:last-child { border-right: 0; }
 
 .profile-meta span {
   color: var(--muted);
@@ -81,7 +121,7 @@
   letter-spacing: 0.1em;
 }
 
-.profile-meta b { font-size: 11px; }
+.profile-meta b { font-size: 10px; }
 
 .career-card {
   overflow: hidden;
@@ -210,13 +250,19 @@
 @media (max-width: 900px) {
   .profile-grid { grid-template-columns: 1fr; }
   .profile-intro { min-height: 0; }
-  .profile-meta { margin-top: 15px; }
+  .profile-signoff { margin-top: 10px; }
 }
 
 @media (max-width: 600px) {
   .profile-head > span:last-child { display: none; }
-  .profile-grid { padding-top: 52px; gap: 55px; }
+  .profile-grid { padding-top: 52px; gap: 45px; }
   .profile-intro h2 { font-size: 47px; }
+  .about-statement { padding: 28px 22px; }
+  .about-statement p { font-size: 25px; }
+  .about-focus article { grid-template-columns: 32px 1fr; padding: 21px 22px; gap: 10px; }
+  .profile-meta { grid-template-columns: 1fr; }
+  .profile-meta > div { min-height: 70px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .profile-meta > div:last-child { border-bottom: 0; }
   .career-top { align-items: flex-start; padding: 20px; }
   .career-location { max-width: 90px; text-align: right; }
   .career-role { padding: 29px 20px 25px; }

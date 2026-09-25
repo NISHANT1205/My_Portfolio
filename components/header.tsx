@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
-const links = [["Work", "#work"], ["About", "#about"], ["Experience", "#experience"], ["Skills", "#skills"], ["Contact", "#contact"]];
+const links = [["Work", "#work"], ["About", "#about"], ["Skills", "#skills"], ["Contact", "#contact"]];
 
 export function Header({ inner = false }: { inner?: boolean }) {
   const [open, setOpen] = useState(false);
